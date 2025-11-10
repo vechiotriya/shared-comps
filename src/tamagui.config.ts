@@ -1,11 +1,10 @@
 import { createTamagui } from 'tamagui'
 
-export const config = createTamagui({
+const config = createTamagui({
   tokens: {
     color: {
       background: '#fff',
       borderColor: '#ddd',
-      // add your custom colors matching expected keys
     },
   },
   themes: {
@@ -14,5 +13,5 @@ export const config = createTamagui({
       borderColor: '#ddd',
     },
   },
-  // your other config
 })
+export default config;
