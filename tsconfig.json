@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2017",
     "lib": ["esnext"],
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -13,13 +13,14 @@
     "resolveJsonModule": true,
     "declaration": true,
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "./dist/esm",
     "rootDir": "src",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "src/tamagui.config.ts": ["src/tamagui.config.ts"] 
+      "src/tamagui.config.ts": ["src/tamagui.config.ts"]
     }
   },
+  "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }
