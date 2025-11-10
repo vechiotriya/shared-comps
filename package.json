@@ -23,18 +23,22 @@
   },
   "license": "ISC",
   "packageManager": "pnpm@10.18.0",
-  "dependencies": {
-    "@tamagui/core": "^1.136.1",
-    "@tamagui/web": "^1.136.1",
-    "react": "^19.2.0",
-    "react-native": "^0.82.1",
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-native": "*",
     "react-native-web": "^0.21.2",
     "tamagui": "^1.136.1"
+  },
+  "dependencies": {
+    "@tamagui/core": "^1.136.1",
+    "@tamagui/web": "^1.136.1"
   },
   "devDependencies": {
     "@tamagui/build": "^1.0.0",
     "@tamagui/cli": "^1.136.1",
     "@types/react": "^19.2.2",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "rimraf": "^6.0.0"
   }
 }
