@@ -13,7 +13,8 @@
     }
   },
   "files": [
-    "dist",
+    "dist/esm",
+    "dist/types",
     "tamagui.config.ts"
   ],
   "scripts": {
