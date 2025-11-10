@@ -1,19 +1,31 @@
 {
   "name": "shared-comps",
   "version": "1.0.0",
-  "description": "",
-  "module": "dist/esm/index.js",
+  "description": "Shared Tamagui components for React Native and Next.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js",
+      "types": "./dist/*.d.ts"
+    }
+  },
   "files": [
     "dist",
-    "src",
     "tamagui.config.ts"
   ],
   "scripts": {
     "build": "tamagui-build",
-    "watch": "tamagui-build --watch"
+    "watch": "tamagui-build --watch",
+    "clean": "rm -rf dist"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.18.0",
   "dependencies": {
