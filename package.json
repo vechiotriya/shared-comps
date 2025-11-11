@@ -1,35 +1,40 @@
 {
-  "name": "@your-scope/shared-comps",
+  "name": "shared-comps",
   "version": "1.0.0",
-  "description": "Shared Tamagui components for Next.js and React Native",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "react-native": "src/index.ts",
-  "types": "dist/types/index.d.ts",
+  "description": "Shared Tamagui components for React Native and Next.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "react-native": "./src/index.ts",
-      "types": "./dist/types/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     }
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "tsup src/index.ts --format cjs,esm --dts --out-dir dist"
+    "build": "tsup src/index.ts --format cjs,esm --dts --out-dir dist",
+    "prepare": "pnpm run build",
+    "clean": "rimraf dist"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-dom": "*",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
     "react-native": "*",
-    "react-native-web": "*",
+    "react-native-web": ">=0.18.0",
     "tamagui": "^1.136.1"
   },
   "devDependencies": {
-    "tsup": "^8.0.0",
-    "typescript": "^5.4.0",
-    "rimraf": "^6.0.0",
-    "@types/react": "^19.2.2"
+    "@types/react": "^18.2.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.4.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "rimraf": "^6.1.0"
   }
 }
