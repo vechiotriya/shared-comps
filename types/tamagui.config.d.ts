@@ -12,6 +12,7 @@ declare const config: import("tamagui").TamaguiInternalConfig<{
         3: number;
         4: number;
         5: number;
+        true: number;
     };
     space: {
         1: number;
@@ -19,6 +20,7 @@ declare const config: import("tamagui").TamaguiInternalConfig<{
         3: number;
         4: number;
         5: number;
+        true: number;
     };
     radius: {
         0: number;

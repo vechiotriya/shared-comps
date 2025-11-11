@@ -15,6 +15,7 @@ const config = createTamagui({
       3: 12,
       4: 16,
       5: 20,
+      true: 16, 
     },
     space: {
       1: 4,
@@ -22,6 +23,7 @@ const config = createTamagui({
       3: 12,
       4: 16,
       5: 20,
+      true: 16,
     },
     radius: {
       0: 0,

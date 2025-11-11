@@ -38,14 +38,16 @@ const config = (0, import_tamagui.createTamagui)({
       2: 8,
       3: 12,
       4: 16,
-      5: 20
+      5: 20,
+      true: 16
     },
     space: {
       1: 4,
       2: 8,
       3: 12,
       4: 16,
-      5: 20
+      5: 20,
+      true: 16
     },
     radius: {
       0: 0,
