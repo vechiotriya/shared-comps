@@ -1,4 +1,16 @@
-export declare const tamaguiConfig: import("tamagui").TamaguiInternalConfig<{
+import * as react_jsx_runtime from 'react/jsx-runtime';
+import React from 'react';
+import * as tamagui from 'tamagui';
+
+type ButtonProps = {
+    size?: 'small' | 'large';
+    outlined?: boolean;
+    children: React.ReactNode;
+    onPress?: () => void;
+};
+declare function Button({ size, outlined, children, onPress }: ButtonProps): react_jsx_runtime.JSX.Element;
+
+declare const tamaguiConfig: tamagui.TamaguiInternalConfig<{
     color: {
         white: string;
         black: string;
@@ -44,4 +56,5 @@ export declare const tamaguiConfig: import("tamagui").TamaguiInternalConfig<{
     allowedStyleValues: false;
     autocompleteSpecificTokens: "except-special";
 }>;
-//# sourceMappingURL=tamagui.config.d.ts.map
+
+export { Button, tamaguiConfig };
