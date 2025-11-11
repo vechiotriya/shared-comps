@@ -21,7 +21,7 @@ var __export = (target, all) => {
 )), __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: !0 }), mod);
 var index_exports = {};
 __export(index_exports, {
-  config: () => import_tamagui.default
+  default: () => import_tamagui.default
 });
 module.exports = __toCommonJS(index_exports);
 __reExport(index_exports, require("./components/Button"), module.exports);
