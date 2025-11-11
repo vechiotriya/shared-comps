@@ -20,11 +20,11 @@ var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
 }), mod);
 var tamagui_config_exports = {};
 __export(tamagui_config_exports, {
-  config: () => config
+  tamaguiConfig: () => tamaguiConfig
 });
 module.exports = __toCommonJS(tamagui_config_exports);
 var import_tamagui = require("tamagui");
-const config = (0, import_tamagui.createTamagui)({
+const tamaguiConfig = (0, import_tamagui.createTamagui)({
   tokens: {
     color: {
       white: "#fff",

@@ -1,4 +1,4 @@
-export declare const config: import("tamagui").TamaguiInternalConfig<{
+export declare const tamaguiConfig: import("tamagui").TamaguiInternalConfig<{
     color: {
         white: string;
         black: string;

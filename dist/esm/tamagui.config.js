@@ -1,5 +1,5 @@
 import { createTamagui } from "tamagui";
-const config = createTamagui({
+const tamaguiConfig = createTamagui({
   tokens: {
     color: {
       white: "#fff",
@@ -47,6 +47,6 @@ const config = createTamagui({
   defaultTheme: "light"
 });
 export {
-  config
+  tamaguiConfig
 };
 //# sourceMappingURL=tamagui.config.js.map

@@ -1,6 +1,6 @@
 import { createTamagui } from 'tamagui'
 
-export const config = createTamagui({
+export const tamaguiConfig  = createTamagui({
   tokens: {
     color: {
       white: '#fff',
