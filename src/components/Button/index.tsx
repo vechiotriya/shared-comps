@@ -1,64 +1,140 @@
-// packages/ui/src/components/Button.tsx
-import React from 'react'
-import { styled, Text, YStack } from 'tamagui'
+import { styled } from '@tamagui/core';
+import { Text } from 'react-native';
 
-// Styled container using Tamagui primitives and tokens
-const ButtonContainer = styled(YStack, {
-  name: 'ButtonContainer',
-  backgroundColor: '$background',
-  padding: '$md',
-  borderRadius: '$sm',
-  alignItems: 'center',
-  justifyContent: 'center',
+export const Button = styled(Text, {
+  name: 'Button',
+  // @ts-ignore - Tamagui core types limitation with RN components
+  tag: 'button',
+  
+  paddingHorizontal: '$4',
+  paddingVertical: '$3',
+  borderRadius: '$2',
+  backgroundColor: '$primary',
+  color: '$background',
+  fontSize: 16,
+  fontWeight: '600',
+  textAlign: 'center',
   cursor: 'pointer',
-
-  // Variants for size
+  userSelect: 'none',
+  
+  pressStyle: {
+    backgroundColor: '$primaryActive',
+  },
+  
+  hoverStyle: {
+    backgroundColor: '$primaryHover',
+  },
+  
+  focusStyle: {
+    outlineWidth: 2,
+    outlineColor: '$primary',
+    outlineStyle: 'solid',
+  },
+  
   variants: {
-    size: {
-      small: { padding: 8 },
-      large: { padding: 20 },
-    },
-    outlined: {
-      true: {
-        borderWidth: 1,
-        borderColor: '$borderColor',
+    variant: {
+      primary: {
+        backgroundColor: '$primary',
+        color: '$background',
+        hoverStyle: {
+          backgroundColor: '$primaryHover',
+        },
+        pressStyle: {
+          backgroundColor: '$primaryActive',
+        },
+      },
+      secondary: {
+        backgroundColor: '$secondary',
+        color: '$background',
+        hoverStyle: {
+          backgroundColor: '$secondaryHover',
+        },
+        pressStyle: {
+          backgroundColor: '$secondaryActive',
+        },
+      },
+      success: {
+        backgroundColor: '$success',
+        color: '$background',
+        hoverStyle: {
+          backgroundColor: '$successHover',
+        },
+      },
+      warning: {
+        backgroundColor: '$warning',
+        color: '$background',
+        hoverStyle: {
+          backgroundColor: '$warningHover',
+        },
+      },
+      danger: {
+        backgroundColor: '$danger',
+        color: '$background',
+        hoverStyle: {
+          backgroundColor: '$dangerHover',
+        },
+      },
+      outline: {
         backgroundColor: 'transparent',
+        color: '$primary',
+        borderWidth: 1,
+        borderColor: '$primary',
+        hoverStyle: {
+          backgroundColor: '$card',
+        },
+      },
+      ghost: {
+        backgroundColor: 'transparent',
+        color: '$primary',
+        hoverStyle: {
+          backgroundColor: '$card',
+        },
       },
     },
-  },
-
-  // Default variants
+    
+    size: {
+      small: {
+        paddingHorizontal: '$3',
+        paddingVertical: '$2',
+        fontSize: 14,
+      },
+      medium: {
+        paddingHorizontal: '$4',
+        paddingVertical: '$3',
+        fontSize: 16,
+      },
+      large: {
+        paddingHorizontal: '$6',
+        paddingVertical: '$4',
+        fontSize: 18,
+      },
+    },
+    
+    disabled: {
+      true: {
+        backgroundColor: '$disabled',
+        color: '$textSecondary',
+        cursor: 'not-allowed',
+        pressStyle: {
+          backgroundColor: '$disabled',
+        },
+        hoverStyle: {
+          backgroundColor: '$disabled',
+        },
+      },
+    },
+    
+    fullWidth: {
+      true: {
+        width: '100%',
+      },
+    },
+  } as const,
+  
   defaultVariants: {
-    size: 'small',
-    outlined: false,
+    variant: 'primary',
+    size: 'medium',
   },
-})
+});
 
-const ButtonText = styled(Text, {
-  name: 'ButtonText',
-  color: '$color', // uses theme color token
-  fontWeight: 'bold',
-  fontSize: 16,
-  userSelect: 'none',
-})
-
-type ButtonProps = {
-  size?: 'small' | 'large'
-  outlined?: boolean
-  children: React.ReactNode
-  onPress?: () => void
-}
-
-export function Button({ size = 'small', outlined = false, children, onPress }: ButtonProps) {
-  return (
-    <ButtonContainer
-      size={size}
-      outlined={outlined}
-      onPress={onPress}
-      pressStyle={{ scale: 0.95 }}
-      hoverStyle={{ scale: 1.05 }}
-    >
-      <ButtonText>{children}</ButtonText>
-    </ButtonContainer>
-  )
-}
+export type ButtonProps = React.ComponentProps<typeof Button>;

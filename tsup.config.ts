@@ -1,11 +1,14 @@
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsup';
 
 export default defineConfig({
   entry: ['src/index.ts'],
-  format: ['esm', 'cjs'],
+  format: ['cjs', 'esm'],
+  dts: false,
   clean: true,
-  dts: true,
   splitting: false,
   sourcemap: true,
-  external: ['react', 'react-dom', 'react-native', 'tamagui']
-})
+  external: ['react', 'react-native', '@tamagui/core'],
+  esbuildOptions(options) {
+    options.jsx = 'automatic';
+  },
+});

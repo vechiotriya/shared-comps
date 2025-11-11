@@ -1,26 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "lib": ["esnext"],
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": ["ES2020"],
+    "jsx": "react-native",
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": false,
+    "moduleResolution": "node",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsx",
-    "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "declaration": true,
-    "sourceMap": true,
-    "outDir": "./dist/esm",
-    "rootDir": "src",
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"],
-      "src/tamagui.config.ts": ["src/tamagui.config.ts"]
-    }
+    "allowSyntheticDefaultImports": true,
+    "types": ["react", "react-native"]
   },
-  "include": ["src"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
