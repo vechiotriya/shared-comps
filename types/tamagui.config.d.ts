@@ -1,4 +1,4 @@
-declare const config: import("tamagui").TamaguiInternalConfig<{
+export declare const config: import("tamagui").TamaguiInternalConfig<{
     color: {
         white: string;
         black: string;
@@ -44,5 +44,4 @@ declare const config: import("tamagui").TamaguiInternalConfig<{
     allowedStyleValues: false;
     autocompleteSpecificTokens: "except-special";
 }>;
-export default config;
 //# sourceMappingURL=tamagui.config.d.ts.map

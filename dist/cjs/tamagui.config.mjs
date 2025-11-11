@@ -20,7 +20,7 @@ var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
 }), mod);
 var tamagui_config_exports = {};
 __export(tamagui_config_exports, {
-  default: () => tamagui_config_default
+  config: () => config
 });
 module.exports = __toCommonJS(tamagui_config_exports);
 var import_tamagui = require("tamagui");
@@ -71,5 +71,4 @@ const config = (0, import_tamagui.createTamagui)({
   },
   defaultTheme: "light"
 });
-var tamagui_config_default = config;
 //# sourceMappingURL=tamagui.config.mjs.map

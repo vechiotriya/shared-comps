@@ -46,8 +46,7 @@ const config = createTamagui({
   },
   defaultTheme: "light"
 });
-var tamagui_config_default = config;
 export {
-  tamagui_config_default as default
+  config
 };
 //# sourceMappingURL=tamagui.config.js.map

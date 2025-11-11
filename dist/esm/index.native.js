@@ -1,4 +1,3 @@
 export * from "./components/Button";
-import { default as default2 } from "./tamagui.config";
-export { default2 as default };
+export * from "./tamagui.config";
 //# sourceMappingURL=index.native.js.map
