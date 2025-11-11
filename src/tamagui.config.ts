@@ -1,6 +1,6 @@
 import { createTamagui } from 'tamagui'
 
-const config = createTamagui({
+export const config = createTamagui({
   tokens: {
     color: {
       white: '#fff',
@@ -47,5 +47,3 @@ const config = createTamagui({
   },
   defaultTheme: 'light',
 })
-
-export default config
