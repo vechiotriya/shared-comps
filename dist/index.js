@@ -27,7 +27,7 @@ module.exports = __toCommonJS(index_exports);
 // src/components/Button/index.tsx
 var import_core = require("@tamagui/core");
 var import_react_native = require("react-native");
-var Button = (0, import_core.styled)(import_react_native.Text, {
+var Button = (0, import_core.styled)(import_react_native.Pressable, {
   name: "Button",
   // @ts-ignore - Tamagui core types limitation with RN components
   tag: "button",

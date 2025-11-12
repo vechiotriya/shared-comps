@@ -1,7 +1,7 @@
 // src/components/Button/index.tsx
 import { styled } from "@tamagui/core";
-import { Text } from "react-native";
-var Button = styled(Text, {
+import { Pressable } from "react-native";
+var Button = styled(Pressable, {
   name: "Button",
   // @ts-ignore - Tamagui core types limitation with RN components
   tag: "button",

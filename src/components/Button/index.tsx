@@ -1,7 +1,7 @@
 import { styled } from '@tamagui/core';
-import { Text } from 'react-native';
+import { Pressable } from 'react-native';
 
-export const Button = styled(Text, {
+export const Button = styled(Pressable, {
   name: 'Button',
   // @ts-ignore - Tamagui core types limitation with RN components
   tag: 'button',
