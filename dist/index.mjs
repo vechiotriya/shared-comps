@@ -1,20 +1,17 @@
 // src/components/Button/index.tsx
 import { styled } from "@tamagui/core";
-import { Pressable } from "react-native";
-var Button = styled(Pressable, {
+import { Pressable, Text } from "react-native";
+import { jsx } from "react/jsx-runtime";
+var StyledButton = styled(Pressable, {
   name: "Button",
-  // @ts-ignore - Tamagui core types limitation with RN components
-  tag: "button",
-  paddingHorizontal: "$4",
-  paddingVertical: "$3",
-  borderRadius: "$2",
-  backgroundColor: "$primary",
-  color: "$background",
-  fontSize: 16,
-  fontWeight: "600",
-  textAlign: "center",
   cursor: "pointer",
   userSelect: "none",
+  alignItems: "center",
+  justifyContent: "center",
+  borderRadius: "$2",
+  paddingHorizontal: "$4",
+  paddingVertical: "$3",
+  backgroundColor: "$primary",
   pressStyle: {
     backgroundColor: "$primaryActive"
   },
@@ -123,15 +120,30 @@ var Button = styled(Pressable, {
     }
   },
   defaultVariants: {
-    variant: "primary",
-    size: "medium"
+    variant: "outline"
   }
 });
+var Button = ({ children, onPress, ...props }) => {
+  return /* @__PURE__ */ jsx(
+    StyledButton,
+    {
+      ...props,
+      onPress,
+      onClick: (e) => {
+        e.stopPropagation();
+        if (onPress) onPress();
+      },
+      role: "button",
+      accessibilityRole: "button",
+      children: typeof children === "string" ? /* @__PURE__ */ jsx(Text, { children }) : children
+    }
+  );
+};
 
 // src/components/Text/index.tsx
 import { styled as styled2 } from "@tamagui/core";
 import { Text as RNText } from "react-native";
-var Text = styled2(RNText, {
+var Text2 = styled2(RNText, {
   name: "Text",
   // @ts-ignore - Tamagui core types limitation with RN components
   color: "$text",
@@ -397,7 +409,7 @@ var config = createTamagui({
 var tamagui_config_default = config;
 export {
   Button,
-  Text,
+  Text2 as Text,
   tamagui_config_default as config
 };
 //# sourceMappingURL=index.mjs.map

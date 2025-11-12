@@ -1,21 +1,17 @@
-import { styled } from '@tamagui/core';
-import { Pressable } from 'react-native';
+import React from 'react'
+import { styled } from '@tamagui/core'
+import { Pressable,Text } from 'react-native'
 
-export const Button = styled(Pressable, {
+const StyledButton = styled(Pressable, {
   name: 'Button',
-  // @ts-ignore - Tamagui core types limitation with RN components
-  tag: 'button',
-  
-  paddingHorizontal: '$4',
-  paddingVertical: '$3',
-  borderRadius: '$2',
-  backgroundColor: '$primary',
-  color: '$background',
-  fontSize: 16,
-  fontWeight: '600',
-  textAlign: 'center',
   cursor: 'pointer',
   userSelect: 'none',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: '$2',
+  paddingHorizontal: '$4',
+  paddingVertical: '$3',
+  backgroundColor: '$primary',
   
   pressStyle: {
     backgroundColor: '$primaryActive',
@@ -130,11 +126,31 @@ export const Button = styled(Pressable, {
       },
     },
   } as const,
-  
-  defaultVariants: {
-    variant: 'primary',
-    size: 'medium',
-  },
-});
 
-export type ButtonProps = React.ComponentProps<typeof Button>;
+  defaultVariants: {
+    variant: 'outline',
+  },
+})
+
+export type ButtonProps = React.ComponentProps<typeof StyledButton> & {
+  children?: React.ReactNode
+  onPress?: () => void
+}
+
+export const Button: React.FC<ButtonProps> = ({ children, onPress, ...props }) => {
+  return (
+    <StyledButton
+      {...props}
+      // Explicitly ensure it’s clickable on web
+      onPress={onPress}
+      onClick={(e: any) => {
+        e.stopPropagation()
+        if (onPress) onPress()
+      }}
+      role="button"
+      accessibilityRole="button"
+    >
+      {typeof children === 'string' ? <Text>{children}</Text> : children}
+    </StyledButton>
+  )
+}

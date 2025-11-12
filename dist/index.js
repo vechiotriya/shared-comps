@@ -20,7 +20,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var index_exports = {};
 __export(index_exports, {
   Button: () => Button,
-  Text: () => Text,
+  Text: () => Text2,
   config: () => tamagui_config_default
 });
 module.exports = __toCommonJS(index_exports);
@@ -28,20 +28,17 @@ module.exports = __toCommonJS(index_exports);
 // src/components/Button/index.tsx
 var import_core = require("@tamagui/core");
 var import_react_native = require("react-native");
-var Button = (0, import_core.styled)(import_react_native.Pressable, {
+var import_jsx_runtime = require("react/jsx-runtime");
+var StyledButton = (0, import_core.styled)(import_react_native.Pressable, {
   name: "Button",
-  // @ts-ignore - Tamagui core types limitation with RN components
-  tag: "button",
-  paddingHorizontal: "$4",
-  paddingVertical: "$3",
-  borderRadius: "$2",
-  backgroundColor: "$primary",
-  color: "$background",
-  fontSize: 16,
-  fontWeight: "600",
-  textAlign: "center",
   cursor: "pointer",
   userSelect: "none",
+  alignItems: "center",
+  justifyContent: "center",
+  borderRadius: "$2",
+  paddingHorizontal: "$4",
+  paddingVertical: "$3",
+  backgroundColor: "$primary",
   pressStyle: {
     backgroundColor: "$primaryActive"
   },
@@ -150,15 +147,30 @@ var Button = (0, import_core.styled)(import_react_native.Pressable, {
     }
   },
   defaultVariants: {
-    variant: "primary",
-    size: "medium"
+    variant: "outline"
   }
 });
+var Button = ({ children, onPress, ...props }) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+    StyledButton,
+    {
+      ...props,
+      onPress,
+      onClick: (e) => {
+        e.stopPropagation();
+        if (onPress) onPress();
+      },
+      role: "button",
+      accessibilityRole: "button",
+      children: typeof children === "string" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react_native.Text, { children }) : children
+    }
+  );
+};
 
 // src/components/Text/index.tsx
 var import_core2 = require("@tamagui/core");
 var import_react_native2 = require("react-native");
-var Text = (0, import_core2.styled)(import_react_native2.Text, {
+var Text2 = (0, import_core2.styled)(import_react_native2.Text, {
   name: "Text",
   // @ts-ignore - Tamagui core types limitation with RN components
   color: "$text",
