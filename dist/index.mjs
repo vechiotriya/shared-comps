@@ -129,10 +129,6 @@ var Button = ({ children, onPress, ...props }) => {
     {
       ...props,
       onPress,
-      onClick: (e) => {
-        e.stopPropagation();
-        if (onPress) onPress();
-      },
       role: "button",
       accessibilityRole: "button",
       children: typeof children === "string" ? /* @__PURE__ */ jsx(Text, { children }) : children

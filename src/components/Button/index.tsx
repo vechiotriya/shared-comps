@@ -141,12 +141,7 @@ export const Button: React.FC<ButtonProps> = ({ children, onPress, ...props }) =
   return (
     <StyledButton
       {...props}
-      // Explicitly ensure it’s clickable on web
       onPress={onPress}
-      onClick={(e: any) => {
-        e.stopPropagation()
-        if (onPress) onPress()
-      }}
       role="button"
       accessibilityRole="button"
     >
