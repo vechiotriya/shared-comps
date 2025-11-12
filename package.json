@@ -1,5 +1,5 @@
 {
-  "name": "@tamagui/common-components",
+  "name": "shared-comps",
   "version": "0.1.0",
   "description": "Common UI components built with Tamagui core for React Native and Next.js applications",
   "main": "./dist/index.js",
@@ -47,5 +47,8 @@
     "react-native": "^0.72.0",
     "tsup": "^8.0.0",
     "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "rimraf": "^6.1.0"
   }
 }
