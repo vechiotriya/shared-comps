@@ -21,6 +21,7 @@ var index_exports = {};
 __export(index_exports, {
   Button: () => Button,
   Text: () => Text2,
+  TextInput: () => TextInput,
   config: () => tamagui_config_default
 });
 module.exports = __toCommonJS(index_exports);
@@ -267,9 +268,188 @@ var Text2 = (0, import_core2.styled)(import_react_native2.Text, {
   }
 });
 
-// src/tamagui.config.ts
+// src/components/TextInput/index.tsx
 var import_core3 = require("@tamagui/core");
-var bodyFont = (0, import_core3.createFont)({
+var import_react_native3 = require("react-native");
+var import_jsx_runtime2 = require("react/jsx-runtime");
+var StyledInputContainer = (0, import_core3.styled)(import_react_native3.View, {
+  name: "InputContainer",
+  marginBottom: "$4",
+  width: "100%"
+});
+var StyledLabel = (0, import_core3.styled)(import_react_native3.Text, {
+  name: "InputLabel",
+  marginBottom: "$1",
+  // @ts-ignore - Tamagui core types limitation with RN components
+  color: "$text",
+  fontFamily: "$body",
+  fontWeight: "400",
+  variants: {
+    size: {
+      small: {
+        fontSize: "$2"
+        // 14px
+      },
+      medium: {
+        fontSize: "$3"
+        // 16px
+      },
+      large: {
+        fontSize: "$4"
+        // 18px
+      }
+    }
+  },
+  defaultVariants: {
+    size: "medium"
+  }
+});
+var StyledInput = (0, import_core3.styled)(import_react_native3.TextInput, {
+  name: "TextInput",
+  // @ts-ignore - Tamagui core types limitation with RN components
+  fontFamily: "$body",
+  fontWeight: "400",
+  borderWidth: 1,
+  color: "$text",
+  focusStyle: {
+    borderColor: "$primary",
+    outlineWidth: 2,
+    outlineColor: "$primary",
+    outlineStyle: "solid"
+  },
+  variants: {
+    size: {
+      small: {
+        fontSize: "$2",
+        // 14px
+        paddingHorizontal: "$3",
+        // 12px
+        paddingVertical: "$2",
+        // 8px
+        borderRadius: "$1"
+        // 4px
+      },
+      medium: {
+        fontSize: "$3",
+        // 16px
+        paddingHorizontal: "$4",
+        // 16px
+        paddingVertical: "$3",
+        // 12px
+        borderRadius: "$2"
+        // 8px
+      },
+      large: {
+        fontSize: "$4",
+        // 18px
+        paddingHorizontal: "$5",
+        // 20px
+        paddingVertical: "$4",
+        // 16px
+        borderRadius: "$3"
+        // 12px
+      }
+    },
+    variant: {
+      default: {
+        backgroundColor: "$background",
+        borderColor: "$border"
+      },
+      filled: {
+        backgroundColor: "$card",
+        borderColor: "transparent"
+      },
+      outlined: {
+        backgroundColor: "transparent",
+        borderColor: "$border"
+      }
+    },
+    state: {
+      default: {},
+      error: {
+        borderColor: "$danger",
+        focusStyle: {
+          borderColor: "$danger",
+          outlineColor: "$danger"
+        }
+      },
+      success: {
+        borderColor: "$success",
+        focusStyle: {
+          borderColor: "$success",
+          outlineColor: "$success"
+        }
+      },
+      disabled: {
+        backgroundColor: "$disabled",
+        color: "$textSecondary",
+        opacity: 0.6,
+        cursor: "not-allowed"
+      }
+    }
+  },
+  defaultVariants: {
+    size: "medium",
+    variant: "default",
+    state: "default"
+  }
+});
+var StyledHelperText = (0, import_core3.styled)(import_react_native3.Text, {
+  name: "HelperText",
+  // @ts-ignore - Tamagui core types limitation with RN components
+  fontSize: "$2",
+  // 14px
+  marginTop: "$1",
+  // 4px
+  fontFamily: "$body",
+  fontWeight: "400",
+  variants: {
+    state: {
+      default: {
+        color: "$textSecondary"
+      },
+      error: {
+        color: "$danger"
+      },
+      success: {
+        color: "$success"
+      }
+    }
+  },
+  defaultVariants: {
+    state: "default"
+  }
+});
+var TextInput = ({
+  label,
+  size = "medium",
+  variant = "default",
+  state = "default",
+  helperText,
+  editable = true,
+  ...rest
+}) => {
+  const finalState = !editable ? "disabled" : state;
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(StyledInputContainer, { children: [
+    label && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(StyledLabel, { size, children: label }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      StyledInput,
+      {
+        size,
+        variant,
+        state: finalState,
+        editable,
+        placeholderTextColor: "$placeholder",
+        ...rest
+      }
+    ),
+    helperText && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(StyledHelperText, { state: finalState === "disabled" ? "default" : finalState, children: helperText })
+  ] });
+};
+
+// src/tamagui.config.ts
+var import_core4 = require("@tamagui/core");
+var bodyFont = (0, import_core4.createFont)({
   family: "System",
   size: {
     1: 12,
@@ -308,7 +488,7 @@ var bodyFont = (0, import_core3.createFont)({
     7: 0
   }
 });
-var tokens = (0, import_core3.createTokens)({
+var tokens = (0, import_core4.createTokens)({
   size: {
     0: 0,
     1: 4,
@@ -376,7 +556,7 @@ var tokens = (0, import_core3.createTokens)({
     placeholder: "#8E8E93"
   }
 });
-var config = (0, import_core3.createTamagui)({
+var config = (0, import_core4.createTamagui)({
   tokens,
   fonts: {
     body: bodyFont
@@ -433,6 +613,7 @@ var tamagui_config_default = config;
 0 && (module.exports = {
   Button,
   Text,
+  TextInput,
   config
 });
 //# sourceMappingURL=index.js.map

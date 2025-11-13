@@ -240,6 +240,189 @@ var Text2 = styled2(RNText, {
   }
 });
 
+// src/components/TextInput/index.tsx
+import { styled as styled3 } from "@tamagui/core";
+import {
+  TextInput as RNTextInput,
+  View as View2,
+  Text as RNText2
+} from "react-native";
+import { jsx as jsx2, jsxs } from "react/jsx-runtime";
+var StyledInputContainer = styled3(View2, {
+  name: "InputContainer",
+  marginBottom: "$4",
+  width: "100%"
+});
+var StyledLabel = styled3(RNText2, {
+  name: "InputLabel",
+  marginBottom: "$1",
+  // @ts-ignore - Tamagui core types limitation with RN components
+  color: "$text",
+  fontFamily: "$body",
+  fontWeight: "400",
+  variants: {
+    size: {
+      small: {
+        fontSize: "$2"
+        // 14px
+      },
+      medium: {
+        fontSize: "$3"
+        // 16px
+      },
+      large: {
+        fontSize: "$4"
+        // 18px
+      }
+    }
+  },
+  defaultVariants: {
+    size: "medium"
+  }
+});
+var StyledInput = styled3(RNTextInput, {
+  name: "TextInput",
+  // @ts-ignore - Tamagui core types limitation with RN components
+  fontFamily: "$body",
+  fontWeight: "400",
+  borderWidth: 1,
+  color: "$text",
+  focusStyle: {
+    borderColor: "$primary",
+    outlineWidth: 2,
+    outlineColor: "$primary",
+    outlineStyle: "solid"
+  },
+  variants: {
+    size: {
+      small: {
+        fontSize: "$2",
+        // 14px
+        paddingHorizontal: "$3",
+        // 12px
+        paddingVertical: "$2",
+        // 8px
+        borderRadius: "$1"
+        // 4px
+      },
+      medium: {
+        fontSize: "$3",
+        // 16px
+        paddingHorizontal: "$4",
+        // 16px
+        paddingVertical: "$3",
+        // 12px
+        borderRadius: "$2"
+        // 8px
+      },
+      large: {
+        fontSize: "$4",
+        // 18px
+        paddingHorizontal: "$5",
+        // 20px
+        paddingVertical: "$4",
+        // 16px
+        borderRadius: "$3"
+        // 12px
+      }
+    },
+    variant: {
+      default: {
+        backgroundColor: "$background",
+        borderColor: "$border"
+      },
+      filled: {
+        backgroundColor: "$card",
+        borderColor: "transparent"
+      },
+      outlined: {
+        backgroundColor: "transparent",
+        borderColor: "$border"
+      }
+    },
+    state: {
+      default: {},
+      error: {
+        borderColor: "$danger",
+        focusStyle: {
+          borderColor: "$danger",
+          outlineColor: "$danger"
+        }
+      },
+      success: {
+        borderColor: "$success",
+        focusStyle: {
+          borderColor: "$success",
+          outlineColor: "$success"
+        }
+      },
+      disabled: {
+        backgroundColor: "$disabled",
+        color: "$textSecondary",
+        opacity: 0.6,
+        cursor: "not-allowed"
+      }
+    }
+  },
+  defaultVariants: {
+    size: "medium",
+    variant: "default",
+    state: "default"
+  }
+});
+var StyledHelperText = styled3(RNText2, {
+  name: "HelperText",
+  // @ts-ignore - Tamagui core types limitation with RN components
+  fontSize: "$2",
+  // 14px
+  marginTop: "$1",
+  // 4px
+  fontFamily: "$body",
+  fontWeight: "400",
+  variants: {
+    state: {
+      default: {
+        color: "$textSecondary"
+      },
+      error: {
+        color: "$danger"
+      },
+      success: {
+        color: "$success"
+      }
+    }
+  },
+  defaultVariants: {
+    state: "default"
+  }
+});
+var TextInput = ({
+  label,
+  size = "medium",
+  variant = "default",
+  state = "default",
+  helperText,
+  editable = true,
+  ...rest
+}) => {
+  const finalState = !editable ? "disabled" : state;
+  return /* @__PURE__ */ jsxs(StyledInputContainer, { children: [
+    label && /* @__PURE__ */ jsx2(StyledLabel, { size, children: label }),
+    /* @__PURE__ */ jsx2(
+      StyledInput,
+      {
+        size,
+        variant,
+        state: finalState,
+        editable,
+        placeholderTextColor: "$placeholder",
+        ...rest
+      }
+    ),
+    helperText && /* @__PURE__ */ jsx2(StyledHelperText, { state: finalState === "disabled" ? "default" : finalState, children: helperText })
+  ] });
+};
+
 // src/tamagui.config.ts
 import { createTamagui, createTokens, createFont } from "@tamagui/core";
 var bodyFont = createFont({
@@ -405,6 +588,7 @@ var tamagui_config_default = config;
 export {
   Button,
   Text2 as Text,
+  TextInput,
   tamagui_config_default as config
 };
 //# sourceMappingURL=index.mjs.map
