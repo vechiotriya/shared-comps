@@ -5,6 +5,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -12,42 +13,33 @@
       "require": "./dist/index.js"
     }
   },
-  "files": ["dist","src","package.json","README.md","LICENSE"],
+  "files": ["dist","package.json","README.md","LICENSE","src"],
   "scripts": {
     "build": "tsup && tsc --emitDeclarationOnly --declaration --declarationMap false",
     "clean": "rimraf dist"
   },
-  "keywords": [
-    "tamagui",
-    "react-native",
-    "nextjs",
-    "ui-components",
-    "cross-platform"
-  ],
-  "author": "",
-  "license": "MIT",
+
   "peerDependencies": {
-    "@tamagui/core": "^1.0.0",
-    "react": "^18.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@tamagui/core": "*",
+    "@tamagui/web": "*",
+    "tamagui": "*",
     "react-native": "*",
     "react-native-web": "*"
   },
+
   "peerDependenciesMeta": {
-    "react-native-web": {
-      "optional": true
-    }
+    "react-native-web": { "optional": true }
   },
+
   "devDependencies": {
-    "@tamagui/core": "^1.112.0",
-    "@types/react": "^18.2.0",
-    "@types/react-native": "^0.72.0",
-    "@types/react-native-web": "^0.19.2",
-    "react": "^18.2.0",
-    "react-native": "^0.72.0",
+    "@types/react": "^19.0.0",
+    "typescript": "^5.3.0",
     "tsup": "^8.0.0",
-    "typescript": "^5.3.0"
-  },
-  "dependencies": {
-    "rimraf": "^6.1.0"
+    "rimraf": "^6.1.0",
+    "@tamagui/core": "^1.136.9",
+    "@tamagui/web": "^1.136.9",
+    "tamagui": "^1.136.9"
   }
 }
