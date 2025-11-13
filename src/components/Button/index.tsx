@@ -141,8 +141,6 @@ export const Button: React.FC<ButtonProps> = ({ children, onPress, ...props }) =
   return (
     <StyledButton
       {...props}
-      onPress={onPress}
-      onClick={onPress}
       role="button"
       accessibilityRole="button"
     >

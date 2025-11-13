@@ -128,8 +128,6 @@ var Button = ({ children, onPress, ...props }) => {
     StyledButton,
     {
       ...props,
-      onPress,
-      onClick: onPress,
       role: "button",
       accessibilityRole: "button",
       children: typeof children === "string" ? /* @__PURE__ */ jsx(Text, { children }) : children
