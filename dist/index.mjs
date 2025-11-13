@@ -129,6 +129,7 @@ var Button = ({ children, onPress, ...props }) => {
     {
       ...props,
       onPress,
+      onClick: onPress,
       role: "button",
       accessibilityRole: "button",
       children: typeof children === "string" ? /* @__PURE__ */ jsx(Text, { children }) : children
