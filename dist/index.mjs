@@ -123,12 +123,14 @@ var StyledButton = styled(Pressable, {
     variant: "outline"
   }
 });
-var Button = ({ children, onPress, ...props }) => {
+var Button = ({ children, onPress, onClick, ...props }) => {
   return /* @__PURE__ */ jsx(
     StyledButton,
     {
       ...props,
       role: "button",
+      onPress,
+      onClick,
       accessibilityRole: "button",
       children: typeof children === "string" ? /* @__PURE__ */ jsx(Text, { children }) : children
     }

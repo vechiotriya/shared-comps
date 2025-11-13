@@ -150,12 +150,14 @@ var StyledButton = (0, import_core.styled)(import_react_native_web.Pressable, {
     variant: "outline"
   }
 });
-var Button = ({ children, onPress, ...props }) => {
+var Button = ({ children, onPress, onClick, ...props }) => {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
     StyledButton,
     {
       ...props,
       role: "button",
+      onPress,
+      onClick,
       accessibilityRole: "button",
       children: typeof children === "string" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react_native_web.Text, { children }) : children
     }
