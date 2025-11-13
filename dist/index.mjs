@@ -129,7 +129,6 @@ var Button = ({ children, onPress, onClick, ...props }) => {
     {
       ...props,
       role: "button",
-      onPress,
       accessibilityRole: "button",
       children: /* @__PURE__ */ jsx(Pressable, { onPress, children })
     }

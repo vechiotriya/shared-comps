@@ -1,6 +1,6 @@
 import React from 'react'
 import { styled } from '@tamagui/core'
-import { Pressable, Text, PressableProps, View } from 'react-native-web'
+import { Pressable, Text, PressableProps, View } from 'react-native'
 
 /**
  * Styled container for the button implementing variants, sizes,
@@ -156,7 +156,6 @@ export const Button: React.FC<ButtonProps> = ({ children, onPress, onClick, ...p
     <StyledButton
       {...props}
       role="button"
-      onPress={onPress}
       accessibilityRole="button"
     >
       <Pressable onPress={onPress}>
