@@ -27,9 +27,9 @@ module.exports = __toCommonJS(index_exports);
 
 // src/components/Button/index.tsx
 var import_core = require("@tamagui/core");
-var import_react_native = require("react-native");
+var import_react_native_web = require("react-native-web");
 var import_jsx_runtime = require("react/jsx-runtime");
-var StyledButton = (0, import_core.styled)(import_react_native.Pressable, {
+var StyledButton = (0, import_core.styled)(import_react_native_web.Pressable, {
   name: "Button",
   cursor: "pointer",
   userSelect: "none",
@@ -158,15 +158,15 @@ var Button = ({ children, onPress, ...props }) => {
       onPress,
       role: "button",
       accessibilityRole: "button",
-      children: typeof children === "string" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react_native.Text, { children }) : children
+      children: typeof children === "string" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react_native_web.Text, { children }) : children
     }
   );
 };
 
 // src/components/Text/index.tsx
 var import_core2 = require("@tamagui/core");
-var import_react_native2 = require("react-native");
-var Text2 = (0, import_core2.styled)(import_react_native2.Text, {
+var import_react_native = require("react-native");
+var Text2 = (0, import_core2.styled)(import_react_native.Text, {
   name: "Text",
   // @ts-ignore - Tamagui core types limitation with RN components
   color: "$text",

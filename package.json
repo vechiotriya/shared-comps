@@ -43,6 +43,7 @@
     "@tamagui/core": "^1.112.0",
     "@types/react": "^18.2.0",
     "@types/react-native": "^0.72.0",
+    "@types/react-native-web": "^0.19.2",
     "react": "^18.2.0",
     "react-native": "^0.72.0",
     "tsup": "^8.0.0",

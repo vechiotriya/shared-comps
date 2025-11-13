@@ -1,6 +1,6 @@
 import React from 'react'
 import { styled } from '@tamagui/core'
-import { Pressable,Text } from 'react-native'
+import { Pressable,Text } from 'react-native-web'
 
 const StyledButton = styled(Pressable, {
   name: 'Button',

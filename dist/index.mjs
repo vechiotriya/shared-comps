@@ -1,6 +1,6 @@
 // src/components/Button/index.tsx
 import { styled } from "@tamagui/core";
-import { Pressable, Text } from "react-native";
+import { Pressable, Text } from "react-native-web";
 import { jsx } from "react/jsx-runtime";
 var StyledButton = styled(Pressable, {
   name: "Button",

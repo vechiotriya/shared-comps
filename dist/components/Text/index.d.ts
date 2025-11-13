@@ -4,8 +4,8 @@ export declare const Text: import("@tamagui/core").TamaguiComponent<import("@tam
 }, {
     color?: "primary" | "secondary" | "success" | "warning" | "danger";
     size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
-    variant?: "body" | "heading" | "caption" | "label" | "subheading";
+    variant?: "body" | "caption" | "label" | "heading" | "subheading";
     weight?: "medium" | "bold" | "normal" | "semibold";
-    align?: "center" | "left" | "right";
+    align?: "center" | "right" | "left";
 }, import("@tamagui/core").StaticConfigPublic>;
 export type TextProps = React.ComponentProps<typeof Text>;
