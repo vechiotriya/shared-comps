@@ -29,7 +29,7 @@ module.exports = __toCommonJS(index_exports);
 var import_core = require("@tamagui/core");
 var import_react_native_web = require("react-native-web");
 var import_jsx_runtime = require("react/jsx-runtime");
-var StyledButton = (0, import_core.styled)(import_react_native_web.Pressable, {
+var StyledButton = (0, import_core.styled)(import_react_native_web.View, {
   name: "Button",
   cursor: "pointer",
   userSelect: "none",
@@ -159,7 +159,7 @@ var Button = ({ children, onPress, onClick, ...props }) => {
       onPress,
       onClick,
       accessibilityRole: "button",
-      children: typeof children === "string" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react_native_web.Text, { children }) : children
+      children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react_native_web.Pressable, { onPress, onClick, children: typeof children === "string" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react_native_web.Text, { children }) : children })
     }
   );
 };

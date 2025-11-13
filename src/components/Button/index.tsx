@@ -1,8 +1,8 @@
 import React from 'react'
 import { styled } from '@tamagui/core'
-import { Pressable,Text,PressableProps } from 'react-native-web'
+import { Pressable,Text,PressableProps,View } from 'react-native-web'
 
-const StyledButton = styled(Pressable, {
+const StyledButton = styled(View, {
   name: 'Button',
   cursor: 'pointer',
   userSelect: 'none',
@@ -143,7 +143,9 @@ export const Button: React.FC<ButtonProps> = ({ children,onPress,onClick, ...pro
       onClick={onClick}
       accessibilityRole="button"
     >
+      <Pressable onPress={onPress} onClick={onClick}>
       {typeof children === 'string' ? <Text>{children}</Text> : children}
+      </Pressable>
     </StyledButton>
   )
 }

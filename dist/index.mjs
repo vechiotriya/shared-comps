@@ -1,8 +1,8 @@
 // src/components/Button/index.tsx
 import { styled } from "@tamagui/core";
-import { Pressable, Text } from "react-native-web";
+import { Pressable, Text, View } from "react-native-web";
 import { jsx } from "react/jsx-runtime";
-var StyledButton = styled(Pressable, {
+var StyledButton = styled(View, {
   name: "Button",
   cursor: "pointer",
   userSelect: "none",
@@ -132,7 +132,7 @@ var Button = ({ children, onPress, onClick, ...props }) => {
       onPress,
       onClick,
       accessibilityRole: "button",
-      children: typeof children === "string" ? /* @__PURE__ */ jsx(Text, { children }) : children
+      children: /* @__PURE__ */ jsx(Pressable, { onPress, onClick, children: typeof children === "string" ? /* @__PURE__ */ jsx(Text, { children }) : children })
     }
   );
 };
