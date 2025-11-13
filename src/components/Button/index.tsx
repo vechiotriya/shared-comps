@@ -1,7 +1,11 @@
 import React from 'react'
 import { styled } from '@tamagui/core'
-import { Pressable,Text,PressableProps,View } from 'react-native-web'
+import { Pressable, Text, PressableProps, View } from 'react-native-web'
 
+/**
+ * Styled container for the button implementing variants, sizes,
+ * and interaction styles (hover, press, focus) via Tamagui.
+ */
 const StyledButton = styled(View, {
   name: 'Button',
   cursor: 'pointer',
@@ -12,21 +16,21 @@ const StyledButton = styled(View, {
   paddingHorizontal: '$4',
   paddingVertical: '$3',
   backgroundColor: '$primary',
-  
+
   pressStyle: {
     backgroundColor: '$primaryActive',
   },
-  
+
   hoverStyle: {
     backgroundColor: '$primaryHover',
   },
-  
+
   focusStyle: {
     outlineWidth: 2,
     outlineColor: '$primary',
     outlineStyle: 'solid',
   },
-  
+
   variants: {
     variant: {
       primary: {
@@ -87,7 +91,7 @@ const StyledButton = styled(View, {
         },
       },
     },
-    
+
     size: {
       small: {
         paddingHorizontal: '$3',
@@ -105,7 +109,7 @@ const StyledButton = styled(View, {
         fontSize: 18,
       },
     },
-    
+
     disabled: {
       true: {
         backgroundColor: '$disabled',
@@ -119,7 +123,7 @@ const StyledButton = styled(View, {
         },
       },
     },
-    
+
     fullWidth: {
       true: {
         width: '100%',
@@ -132,19 +136,31 @@ const StyledButton = styled(View, {
   },
 })
 
+/**
+ * Button Props extend styled button container's props and additional
+ * pressable interaction props from React Native Web.
+ */
 export type ButtonProps = React.ComponentProps<typeof StyledButton> & PressableProps
 
-export const Button: React.FC<ButtonProps> = ({ children,onPress,onClick, ...props}) => {
+/**
+ * Button component supporting styling variants, sizes, disabled state,
+ * full width, and handlers for press and click events.
+ *
+ * @param {React.PropsWithChildren<ButtonProps>} props - Button properties including children, event handlers, and styled-system props
+ * @param {React.ReactNode} props.children - Content inside the button; string children are wrapped in Text component for styling.
+ * @param {(event: PressableProps['onPress'])} [props.onPress] - Handler called when button is pressed or clicked on native and web
+ * @returns {JSX.Element} Rendered button element with interaction support and accessibility role
+ */
+export const Button: React.FC<ButtonProps> = ({ children, onPress, onClick, ...props }) => {
   return (
     <StyledButton
       {...props}
       role="button"
       onPress={onPress}
-      onClick={onClick}
       accessibilityRole="button"
     >
-      <Pressable onPress={onPress} onClick={onClick}>
-      {typeof children === 'string' ? <Text>{children}</Text> : children}
+      <Pressable onPress={onPress}>
+        {typeof children === 'string' ? <Text>{children}</Text> : children}
       </Pressable>
     </StyledButton>
   )
