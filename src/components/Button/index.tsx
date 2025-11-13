@@ -160,7 +160,7 @@ export const Button: React.FC<ButtonProps> = ({ children, onPress, onClick, ...p
       accessibilityRole="button"
     >
       <Pressable onPress={onPress}>
-        {typeof children === 'string' ? <Text>{children}</Text> : children}
+        {children}
       </Pressable>
     </StyledButton>
   )

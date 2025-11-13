@@ -157,9 +157,8 @@ var Button = ({ children, onPress, onClick, ...props }) => {
       ...props,
       role: "button",
       onPress,
-      onClick,
       accessibilityRole: "button",
-      children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react_native_web.Pressable, { onPress, onClick, children: typeof children === "string" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react_native_web.Text, { children }) : children })
+      children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react_native_web.Pressable, { onPress, children })
     }
   );
 };
